@@ -1,0 +1,23 @@
+@import url('./reset.css');
+@import url('./fonts.css');
+@import url('./vars.css');
+@import url('./base.css');
+@import url('./section2.css');
+
+@import url('./ui/button.css');
+@import url('./ui/input.css');
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.active {
+  background-color: white;
+  color: var(--primary-color);
+}
