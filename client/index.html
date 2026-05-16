@@ -8,9 +8,9 @@
   </head>
   <body>
     <div id="app"></div>
-    <section class="hero">
+    <div class="hero">
       <video src="/src/assets/media/video/HP.mp4" class="hero__video" muted autoplay loop></video>
-    </section>
+    </div>
     <nav class="navbar">
       <div class="container">
         <div class="navbar__inner">
@@ -63,9 +63,89 @@
         </div>
       </section>
       <section class="banking">
-      
-        <h3 class="banking__title">Online Banking</h3>
-        <div>dropdown</div>
+        <div class="container">
+          <div class="banking__inner">
+            <div>
+              <h3 class="banking__title">Online Banking</h3>
+
+              <!-- ---------------------------------------------------------------------------- -->
+              <section class="crypto-dashboard">
+                <!-- ЛЕВАЯ КОЛОНКА -->
+                <div class="crypto-list crypto-list--left">
+                  <!-- <div class="crypto-item" data-symbol="BTCUSDT">
+                    <span class="price">$87,965.62</span>
+                    <span class="name">Bitcoin</span>
+                    <img src="btc.svg" class="icon" alt="BTC" />
+                  </div>
+                  <div class="crypto-item" data-symbol="ETHUSDT">
+                    <span class="price">$2,950.04</span>
+                    <span class="name">Ethereum</span>
+                    <img src="eth.svg" class="icon" alt="ETH" />
+                  </div> -->
+                </div>
+
+                <!-- ЦЕНТР -->
+                <div class="center-block">
+                  <div class="first">
+                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
+                  </div>
+                  <div class="first">
+                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
+                  </div>
+
+                  <div class="first">
+                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
+                  </div>
+
+                  <div class="center-content">
+                    <h2>ONLINE BANKING</h2>
+                    <div class="dropdown">
+                      <button class="dropdown__bar">
+                        <span>Add a Cryptocurrency</span>
+                        <img src="./src/shared/icons/Arrow3.svg" alt="" />
+                      </button>
+                      <ul class="dropdown__menu">
+                        <li>
+                          <button class="dropdown__btn">
+                            <img class="dropdown__img" src="/1.png" alt="" />
+                            <span>USD Coin</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="dropdown__btn">
+                            <img class="dropdown__img" src="/1.png" alt="" />
+                            <span>Binance Coin</span>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="dropdown__btn">
+                            <img class="dropdown__img" src="/1.png" alt="" />
+                            <span>Tether</span>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ПРАВАЯ КОЛОНКА -->
+                <div class="crypto-list crypto-list--right">
+                  <!-- <div class="crypto-item" data-symbol="BNBUSDT">
+                    <img src="bnb.svg" class="icon" alt="BNB" />
+                    <span class="name">Binance Coin</span>
+                    <span class="price">$844.91</span>
+                  </div>
+                  <div class="crypto-item" data-symbol="DOGEUSDT">
+                    <img src="doge.svg" class="icon" alt="DOGE" />
+                    <span class="name">Dogecoin</span>
+                    <span class="price">$0.1278</span>
+                  </div> -->
+                </div>
+              </section>
+              <!-- ----------------------------------------------------------------------------- -->
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <script type="module" src="/src/main.ts"></script>

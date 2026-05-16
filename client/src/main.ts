@@ -2,6 +2,8 @@ import { createButton } from './shared/ui/Button';
 import './styles/index.css';
 
 import { render, tabsState } from './components/tabs';
+import { connectCryptoWebSocket } from './shared/utils/connectWs';
+import { createCryptoCard } from './shared/ui/CryptoCard';
 
 export function init() {
   // const primaryBtn = createButton({
@@ -52,4 +54,43 @@ export function init() {
   );
 }
 
+// -------------------------
+
+// Карта для быстрого обновления DOM
+const priceElements = new Map<string, HTMLElement>();
+
+// Инициализация после рендера карточек
+function initCryptoUpdates() {
+  document.querySelectorAll('.crypto-item').forEach((el) => {
+    const symbol = (el as HTMLElement).dataset.symbol!;
+    priceElements.set(symbol, el.querySelector('.price')!);
+  });
+
+  const cleanup = connectCryptoWebSocket((prices) => {
+    prices.forEach((data, symbol) => {
+      const el = priceElements.get(symbol);
+
+      if (el) {
+        el.textContent = `$${data.price.toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
+        // Опционально: подсветка при изменении
+        el.classList.add('price-updated');
+
+        setTimeout(() => el.classList.remove('price-updated'), 300);
+      }
+    });
+  });
+
+  // Очистка при уходе со страницы (если нужно)
+  window.addEventListener('beforeunload', cleanup);
+}
+
+// Вызови после того, как HTML карточек отрендерен
+
+// --------------------------
+
 init();
+createCryptoCard();
+initCryptoUpdates();

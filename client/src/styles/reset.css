@@ -10,6 +10,9 @@ li {
   font-size: inherit;
   display: inline-block;
 }
+li {
+  width: 100%;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -24,6 +27,7 @@ button {
   border: 1px solid transparent;
   color: inherit;
   cursor: pointer;
+  width: 100%;
 }
 
 input {

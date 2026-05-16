@@ -55,6 +55,7 @@ export const render = () => {
     text: 'Create account',
     variant: 'secondary-outline',
     className: 'btn-create',
+    type: 'button',
   });
   document?.querySelector('.header__form-sign-create-btn')?.appendChild(createAccountBtn);
 

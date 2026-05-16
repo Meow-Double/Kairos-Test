@@ -6,6 +6,9 @@
 
 @import url('./ui/button.css');
 @import url('./ui/input.css');
+@import url('./ui/dropdown.css');
+@import url('./ui/crypto-card.css');
+
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

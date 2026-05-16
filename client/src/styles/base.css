@@ -39,7 +39,7 @@ body {
 
 .navbar__menu-item {
   position: relative;
-  margin-inline: 30;
+  width: max-content;
 }
 
 .navbar__menu-item::before {
@@ -84,6 +84,10 @@ body {
 }
 
 /* ----------------------------Header */
+.header {
+  height: 1000px;
+}
+
 .header__inner {
   width: 100%;
 
