@@ -1,45 +1,45 @@
-const subscriptions = new Map<string, Set<Function>>();
+const subscriptions = new Map<string, Set<() => void>>();
+let currentEffect: (() => void) | null = null;
 
-let currentEffect: Function | null = null;
-
-export function reactive<T extends Record<keyof T, unknown>>(state: T): T {
+export const reactive = <T extends Record<string, any>>(state: T): T => {
   return new Proxy(state, {
-    get(target, key) {
-      if (typeof key !== 'string') return;
-      const property = key;
-
-      if (currentEffect) {
-        if (!subscriptions.has(property)) {
-          subscriptions.set(property, new Set());
+    get(target, key: string | symbol) {
+      if (typeof key === 'string' && currentEffect) {
+        let deps = subscriptions.get(key);
+        if (!deps) {
+          deps = new Set();
+          subscriptions.set(key, deps);
         }
-        subscriptions.get(property)!.add(currentEffect);
+        deps.add(currentEffect);
       }
 
-      return target[key];
+      return Reflect.get(target, key);
     },
 
-    set(target, key, value) {
-      if (typeof key !== 'string') return;
-      const property = key;
+    set(target, key: string | symbol, value: unknown) {
+      const oldValue = Reflect.get(target, key);
 
-      const oldValue = target[key];
+      if (Object.is(oldValue, value)) return true;
 
-      if (oldValue === value) return true;
+      const success = Reflect.set(target, key, value);
 
-      target[key] = value;
-
-      const subs = subscriptions.get(property);
-      if (subs) {
-        subs.forEach((effect) => effect());
+      if (success && typeof key === 'string') {
+        const deps = subscriptions.get(key);
+        if (deps) {
+          deps.forEach((fn) => fn());
+        }
       }
 
-      return true;
+      return success;
     },
   });
-}
+};
 
-export function effect(fn: Function) {
+export const effect = (fn: () => void) => {
   currentEffect = fn;
-  fn();
-  currentEffect = null;
-}
+  try {
+    fn();
+  } finally {
+    currentEffect = null;
+  }
+};

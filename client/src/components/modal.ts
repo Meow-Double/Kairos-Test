@@ -10,9 +10,9 @@ export const uploadLearMoreModal = () => {
   const closeBtn = document.querySelector('#learnmore-modal-close');
   const modalBody = document.querySelector('.modal__learnmore');
 
-  learMoreBtn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-  modalBody.addEventListener('click', (e) => e.stopPropagation());
+  learMoreBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  modalBody?.addEventListener('click', (e) => e.stopPropagation());
 };
 
 export const uploadVideoModal = () => {
@@ -25,7 +25,7 @@ export const uploadVideoModal = () => {
   const closeBtn = document.querySelector('#player-modal-close');
   const modalBody = document.querySelector('.modal__player');
 
-  playerBtn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-  modalBody.addEventListener('click', (e) => e.stopPropagation());
+  playerBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  modalBody?.addEventListener('click', (e) => e.stopPropagation());
 };

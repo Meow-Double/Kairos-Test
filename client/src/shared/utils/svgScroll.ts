@@ -10,10 +10,10 @@ export const initSVGSectionTrigger = (options: SVGSectionOptions) => {
   const { sectionSelector, svgSelector, threshold = 0.5, once = true, delay = 0 } = options;
 
   const section = document.querySelector<HTMLElement>(sectionSelector);
-  if (!section) return console.warn(`[SVGTrigger] Секция "${sectionSelector}" не найдена`);
+  if (!section) return console.warn(`Секция "${sectionSelector}" не найдена`);
 
   const paths = section.querySelectorAll<SVGPathElement>(svgSelector);
-  if (!paths.length) return console.warn(`[SVGTrigger] Пути "${svgSelector}" не найдены в секции`);
+  if (!paths.length) return console.warn(`Пути "${svgSelector}" не найдены в секции`);
 
   const preparePaths = () => {
     paths.forEach((path) => {
@@ -21,7 +21,6 @@ export const initSVGSectionTrigger = (options: SVGSectionOptions) => {
       path.style.strokeDasharray = `${length}`;
       path.style.strokeDashoffset = `${length}`;
       path.style.transition = 'stroke-dashoffset 0.8s ease-out';
-      (path as any)._svgLength = length;
     });
   };
 
@@ -40,7 +39,6 @@ export const initSVGSectionTrigger = (options: SVGSectionOptions) => {
   const resetPaths = () => {
     paths.forEach((path) => {
       path.style.transition = 'none';
-      path.style.strokeDashoffset = `${(path as any)._svgLength}`;
 
       setTimeout(() => {
         path.style.transition = 'stroke-dashoffset 0.8s ease-out';

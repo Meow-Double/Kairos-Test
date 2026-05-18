@@ -4,8 +4,10 @@ const priceElements = new Map<string, HTMLElement>();
 
 export const initCryptoUpdates = () => {
   document.querySelectorAll('.crypto-item').forEach((el) => {
-    const symbol = (el as HTMLElement).dataset.symbol!;
-    priceElements.set(symbol, el.querySelector('.price')!);
+    if (el instanceof HTMLElement) {
+      const symbol = el.dataset.symbol!;
+      priceElements.set(symbol, el.querySelector('.price')!);
+    }
   });
 
   const cleanup = connectCryptoWebSocket((prices) => {

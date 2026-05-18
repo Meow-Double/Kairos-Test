@@ -4,7 +4,13 @@ export class VideoPlayer {
   public isPlay: boolean = false;
 
   constructor(playerId: string) {
-    this.videoElement = document.querySelector<HTMLVideoElement>(`#${playerId}`);
+    const element = document.querySelector<HTMLVideoElement>(`#${playerId}`);
+
+    if (!element) {
+      throw new Error(`Видео-элемент #${playerId} не найден в DOM`);
+    }
+
+    this.videoElement = element;
   }
 
   public onPlay() {

@@ -65,7 +65,12 @@ export const initCryptoCards = () => {
   };
 };
 
-function createCardElement(data: any, index: number, side: 'left' | 'right', totalCount: number) {
+const createCardElement = (
+  data: any,
+  index: number,
+  side: 'left' | 'right',
+  totalCount: number,
+) => {
   const el = document.createElement('div');
   el.classList.add('crypto-item');
   el.classList.add(side === 'left' ? 'crypto-item--left' : 'crypto-item--right');
@@ -80,9 +85,14 @@ function createCardElement(data: any, index: number, side: 'left' | 'right', tot
   applyPadding(el, index, side, totalCount);
 
   return el;
-}
+};
 
-function applyPadding(el: HTMLElement, index: number, side: 'left' | 'right', totalCount: number) {
+const applyPadding = (
+  el: HTMLElement,
+  index: number,
+  side: 'left' | 'right',
+  totalCount: number,
+) => {
   const centerPos = Math.ceil(totalCount / 2);
   const isEdge = index === 0 || index === totalCount - 1;
 
@@ -103,9 +113,9 @@ function applyPadding(el: HTMLElement, index: number, side: 'left' | 'right', to
       el.style.paddingLeft = '5px';
     }
   }
-}
+};
 
-function updatePricesInDOM(prices: Map<string, CryptoPrice>, containers: Element[]) {
+const updatePricesInDOM = (prices: Map<string, CryptoPrice>, containers: Element[]) => {
   containers.forEach((container) => {
     const cards = container.querySelectorAll<HTMLElement>('.crypto-item');
 
@@ -139,4 +149,4 @@ function updatePricesInDOM(prices: Map<string, CryptoPrice>, containers: Element
       priceEl.textContent = formattedPrice;
     });
   });
-}
+};

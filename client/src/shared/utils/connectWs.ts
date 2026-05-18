@@ -6,7 +6,7 @@ export interface CryptoPrice {
 
 type OnPriceUpdate = (prices: Map<string, CryptoPrice>) => void;
 
-export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
+export const connectCryptoWebSocket = (onUpdate: OnPriceUpdate) => {
   const symbols = [
     'btcusdt', // Bitcoin
     'ethusdt', // Ethereum
@@ -38,7 +38,7 @@ export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
   let prices = new Map<string, CryptoPrice>();
   let reconnectTimeout: ReturnType<typeof setTimeout>;
 
-  function connect() {
+  const connect = () => {
     ws = new WebSocket(url);
 
     ws.onopen = () => console.log('Connected');
@@ -60,7 +60,7 @@ export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
     };
 
     ws.onclose = () => {
-      ws.onopen = () => console.log('Disconnected');
+      ws!.onopen = () => console.log('Disconnected');
       reconnectTimeout = setTimeout(connect, 3000);
     };
 

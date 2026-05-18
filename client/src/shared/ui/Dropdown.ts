@@ -12,17 +12,17 @@ export const initDropdown = (props: DropdownProps) => {
 
   const toggleDropdown = () => {
     if (open) {
-      dropdownMenu.classList.remove('dropdown__menu--open');
-      dropdownBar.classList.remove('dropdown__bar--open');
+      dropdownMenu?.classList.remove('dropdown__menu--open');
+      dropdownBar?.classList.remove('dropdown__bar--open');
       open = false;
     } else {
-      dropdownMenu.classList.add('dropdown__menu--open');
-      dropdownBar.classList.add('dropdown__bar--open');
+      dropdownMenu?.classList.add('dropdown__menu--open');
+      dropdownBar?.classList.add('dropdown__bar--open');
       open = true;
     }
   };
 
-  dropdownBar.addEventListener('click', toggleDropdown);
+  dropdownBar?.addEventListener('click', toggleDropdown);
 
   return open;
 };

@@ -14,8 +14,10 @@ export const componentDropdown = () => {
     dropdownMenu.innerHTML = '';
 
     if (cryptoState.dropdownList.length === 0) {
-      const dropdown = document.querySelector('.dropdown');
-      dropdown.innerHTML = '';
+      const dropdown = document?.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.innerHTML = '';
+      }
     }
 
     cryptoState.dropdownList?.forEach((item) => {

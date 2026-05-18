@@ -11,38 +11,44 @@ export const initPlayer = () => {
   const playerElement = document.querySelector('.player');
 
   player.videoElement.addEventListener('ended', () => {
-    player.onPause();
-    playBtn.classList.remove('player__btn--hidden');
-    playBtnControl.innerHTML = PLAYER_ICONS.play;
+    if (playBtnControl) {
+      player.onPause();
+      playBtn?.classList.remove('player__btn--hidden');
+      playBtnControl.innerHTML = PLAYER_ICONS.play;
+    }
   });
 
   const togglePlay = () => {
-    if (player.isPlay) {
-      player.onPause();
-      playBtn.classList.remove('player__btn--hidden');
-      playBtnControl.innerHTML = PLAYER_ICONS.play;
-    } else {
-      player.onPlay();
-      playBtn.classList.add('player__btn--hidden');
-      playBtnControl.innerHTML = PLAYER_ICONS.pause;
+    if (playBtnControl) {
+      if (player.isPlay) {
+        player.onPause();
+        playBtn?.classList.remove('player__btn--hidden');
+        playBtnControl.innerHTML = PLAYER_ICONS.play;
+      } else {
+        player.onPlay();
+        playBtn?.classList.add('player__btn--hidden');
+        playBtnControl.innerHTML = PLAYER_ICONS.pause;
+      }
     }
   };
 
-  playBtn.addEventListener('click', togglePlay);
-  playBtnControl.addEventListener('click', togglePlay);
+  playBtn?.addEventListener('click', togglePlay);
+  playBtnControl?.addEventListener('click', togglePlay);
 
   const toggleMuted = () => {
     player.toggleMuted();
 
-    volumeBtn.innerHTML = player.isMuted ? PLAYER_ICONS.muted : PLAYER_ICONS.unmuted;
+    if (volumeBtn) {
+      volumeBtn.innerHTML = player.isMuted ? PLAYER_ICONS.muted : PLAYER_ICONS.unmuted;
+    }
   };
 
-  volumeBtn.addEventListener('click', toggleMuted);
+  volumeBtn?.addEventListener('click', toggleMuted);
 
-  fullScreenBtn.addEventListener('click', () => {
+  fullScreenBtn?.addEventListener('click', () => {
     if (!document.fullscreenElement) {
       playerElement
-        .requestFullscreen?.()
+        ?.requestFullscreen?.()
         .catch((err) => console.warn('Ошибка при входе в полноэкранный режим:', err));
     } else {
       document

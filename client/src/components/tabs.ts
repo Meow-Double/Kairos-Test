@@ -6,22 +6,22 @@ export const initRenderTabs = () => {
   tabBtns[0].classList.add('header__form-btn--active');
   const defaultTabId = tabBtns[0].getAttribute('data-tab');
 
-  const { setActive } = createTabs({ defaultTabId });
+  const { setActive } = createTabs({ defaultTabId: defaultTabId ?? 'tab-1' });
 
-  tabBtns.forEach((element) =>
-    element.addEventListener('click', () => {
-      const dataTabId = element.getAttributeNode('data-tab').value || '';
+  tabBtns?.forEach((element) =>
+    element?.addEventListener('click', () => {
+      const dataTabId = element?.getAttributeNode('data-tab')?.value || '';
       const currentActiveBtn = document.querySelector('.header__form-btn--active');
-      currentActiveBtn.classList.remove('header__form-btn--active');
+      currentActiveBtn?.classList.remove('header__form-btn--active');
 
-      element.classList.add('header__form-btn--active');
+      element?.classList.add('header__form-btn--active');
       setActive(dataTabId);
     }),
   );
 
   const btnGoogleAuth = document.querySelector('.header__form-btn-google');
 
-  btnGoogleAuth.addEventListener('click', () => {
+  btnGoogleAuth?.addEventListener('click', () => {
     googleAuth();
   });
 };
