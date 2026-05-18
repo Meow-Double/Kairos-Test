@@ -10,12 +10,10 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@types/gsap": "^1.20.2",
     "prettier": "^3.8.3",
     "typescript": "~6.0.2",
     "vite": "^8.0.12"
   },
   "dependencies": {
-    "gsap": "^3.15.0"
   }
 }
