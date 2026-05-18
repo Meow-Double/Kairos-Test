@@ -4,150 +4,430 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+    <title>Kairos - Web</title>
   </head>
   <body>
     <div id="app"></div>
     <div class="hero">
       <video src="/src/assets/media/video/HP.mp4" class="hero__video" muted autoplay loop></video>
     </div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar__inner">
-          <div>Kairos</div>
-          <ul class="navbar__menu">
-            <li class="navbar__menu-item"><button class="navbar__menu-item-btn">home</button></li>
-            <li class="navbar__menu-item">
-              <button class="navbar__menu-item-btn">about us</button>
-            </li>
-            <li class="navbar__menu-item">
-              <button class="navbar__menu-item-btn">projects</button>
-            </li>
-            <li class="navbar__menu-item">
-              <button class="navbar__menu-item-btn">contact us</button>
-            </li>
-          </ul>
+    <div>
+      <nav class="navbar full-height">
+        <div class="container">
+          <div class="navbar__inner">
+            <img class="navbar__logo" src="./images/logo.svg" alt="logo" />
+            <div class="navbar__menu-wrapper">
+              <ul class="navbar__menu">
+                <li class="navbar__menu-item">
+                  <a href="#" class="navbar__menu-item-btn">home</a>
+                </li>
+                <li class="navbar__menu-item">
+                  <a href="#" class="navbar__menu-item-btn">about us</a>
+                </li>
+                <li class="navbar__menu-item">
+                  <a href="#" class="navbar__menu-item-btn">projects</a>
+                </li>
+                <li class="navbar__menu-item">
+                  <a href="#" class="navbar__menu-item-btn">contact us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-    <main>
-      <section class="header">
+      </nav>
+
+      <footer class="header">
         <div class="container">
           <div class="header__inner">
-            <div class="header__info">
-              <h1 class="title">From the Field of All Possibility</h1>
-              <p class="subtitle">
+            <div>
+              <h1 class="header__title">From the Field of All Possibility</h1>
+              <p class="header__subtitle">
                 This is an emergent space where ideas are not created, but carefully discovered. We
                 navigate the vast potential to bring forth only the most resonant patterns and
                 coherent forms. Here, the future is curated from the infinite.
               </p>
               <div class="header__info-buttons">
-                <button class="btn-1">
-                  <span>Learn more</span>
-                  <img class="img" src="./src/shared/icons/ArrowIcon.svg" alt="" />
+                <button
+                  aria-label="Learn more"
+                  class="header__btn header__btn--learnmore"
+                  id="btn-learnmore"
+                >
+                  <span class="header__btn-text">Learn more</span>
+                  <svg
+                    class="header__btn-icon"
+                    width="15"
+                    height="13"
+                    viewBox="0 0 15 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14.4547 6.86038C14.7866 6.52843 14.7866 5.99024 14.4547 5.6583L9.04533 0.24893C8.71339 -0.0830156 8.1752 -0.0830156 7.84325 0.24893C7.5113 0.580876 7.5113 1.11907 7.84325 1.45101L12.6516 6.25934L7.84325 11.0677C7.51131 11.3996 7.51131 11.9378 7.84325 12.2697C8.1752 12.6017 8.71339 12.6017 9.04533 12.2697L14.4547 6.86038ZM0 6.25934L6.23913e-08 7.10934L13.8537 7.10934L13.8537 6.25934L13.8537 5.40934L-6.23913e-08 5.40934L0 6.25934Z"
+                      fill="white"
+                    />
+                  </svg>
                 </button>
-                <button class="btn-2">
-                  <span>Play video</span>
-                  <img class="img" src="./src/shared/icons/Arrow.svg" alt="" />
+                <button
+                  aria-label="Play video"
+                  class="header__btn header__btn--playvideo"
+                  id="btn-videoplay"
+                >
+                  <span class="header__btn-text">Play video</span>
+                  <svg
+                    class="header__btn-icon"
+                    width="13"
+                    height="15"
+                    viewBox="0 0 13 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.122 7.44238L2.47427e-07 14.8848L9.02968e-07 -2.34141e-05L12.122 7.44238Z"
+                      fill="#27005B"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
             <div class="header__form">
               <h2 class="header__form-title">Online Banking</h2>
-              <div class="header__form-btns"></div>
-              <form class="header__form-sign">
-                <!-- Контент для Tab (tabs.ts) -->
+              <div class="header__form-btns">
+                <button
+                  aria-label="Sign in"
+                  class="header__form-btn btn-switch btn btn--primary"
+                  data-tab="tab-1"
+                >
+                  Sign in
+                </button>
+                <button
+                  aria-label="Enter Email"
+                  class="header__form-btn btn-switch btn btn--primary"
+                  data-tab="tab-2"
+                >
+                  Enter Email
+                </button>
+              </div>
+              <form class="header__form-container">
+                <!-- Tab 1 -------------->
+                <div class="header__form-content header-tab" data-tab-content="tab-1">
+                  <button
+                    aria-label="Auth with Google"
+                    class="header__form-btn-google btn btn--secondary"
+                    type="button"
+                  >
+                    <img src="./images/GoogleIcon.svg" alt="google icon" />
+                    <span>Google</span>
+                  </button>
+                  <p class="header__form-subtitle">Start Your Journey Now</p>
+                  <span class="header__form-decor header__form-decor--first">or</span>
+                  <button
+                    aria-label="Create account"
+                    class="header__form-btn-create btn btn--secondary-outline"
+                    type="button"
+                  >
+                    Create account
+                  </button>
+                </div>
+                <!-- --------Tab 2------------- -->
+                <div class="header__form-content header-tab" data-tab-content="tab-2">
+                  <input class="header__form-input input" placeholder="Enter Email" type="email" />
+                  <button
+                    aria-label="Sigh in with email"
+                    class="header__form-btn-email btn btn--secondary"
+                    type="button"
+                  >
+                    Sigh in with email
+                  </button>
+                  <span class="header__form-decor header__form-decor--second"></span>
+                  <button aria-label="Forgot Password?" class="header__form-forgot">
+                    Forgot Password?
+                  </button>
+                </div>
               </form>
             </div>
           </div>
         </div>
-      </section>
-      <section class="banking">
+      </footer>
+    </div>
+    <main>
+      <!--  --------------------------------Banking--------------------------------->
+      <section class="banking" id="section-2">
         <div class="container">
-          <div class="banking__inner">
-            <div>
-              <h3 class="banking__title">Online Banking</h3>
+          <!-- -------------------------------------------------------------------------------- -->
 
-              <!-- ---------------------------------------------------------------------------- -->
-              <section class="crypto-dashboard">
-                <!-- ЛЕВАЯ КОЛОНКА -->
-                <div class="crypto-list crypto-list--left">
-                  <!-- <div class="crypto-item" data-symbol="BTCUSDT">
-                    <span class="price">$87,965.62</span>
-                    <span class="name">Bitcoin</span>
-                    <img src="btc.svg" class="icon" alt="BTC" />
-                  </div>
-                  <div class="crypto-item" data-symbol="ETHUSDT">
-                    <span class="price">$2,950.04</span>
-                    <span class="name">Ethereum</span>
-                    <img src="eth.svg" class="icon" alt="ETH" />
-                  </div> -->
+          <section class="banking__dashboard">
+            <svg
+              class="banking__decor decor--left"
+              width="474"
+              height="220"
+              viewBox="0 0 474 220"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.5">
+                <circle cx="6" cy="214" r="5.5" fill="white" stroke="white" />
+                <circle cx="467.598" cy="6" r="5.5" fill="white" stroke="white" />
+                <path
+                  class="draw-path"
+                  d="M5.59767 214C5.59767 196 4.80991 129.173 5.59767 99.5002C5.80998 91.503 9.32781 87.3241 12.0976 84.0002C14.5976 81.0002 67.931 34.5002 93.5977 12.0002C95.0977 10.6853 101.098 6.10022 109.098 6.50022C117.098 6.90022 349.098 6.66689 464.098 6.50022"
+                  stroke="white"
+                />
+              </g>
+            </svg>
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="banking__crypto-list crypto-list--left"></div>
+
+            <!-- ЦЕНТР -->
+            <div class="banking__center-block">
+              <div class="banking__circle-decor">
+                <img class="banking__circle-icon" src="./images/Circle.svg" alt="circle" />
+              </div>
+              <div class="banking__circle-decor">
+                <img class="banking__circle-icon" src="./images/Circle.svg" alt="circle" />
+              </div>
+
+              <div class="banking__circle-decor">
+                <img class="banking__circle-icon" src="./images/Circle.svg" alt="circle" />
+              </div>
+
+              <div class="banking__center-content">
+                <h2 class="banking__center-title">ONLINE BANKING</h2>
+                <div class="dropdown">
+                  <button aria-label="Add a Cryptocurrency" class="dropdown__bar" id="dropdown-bar">
+                    <span>Add a Cryptocurrency</span>
+                    <svg
+                      class="dropdown__bar-icon"
+                      width="8"
+                      height="13"
+                      viewBox="0 0 8 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.071 7.071L1.414 12.728L0 11.314L4.95 6.364L0 1.414L1.414 0L7.071 5.657C7.25847 5.84453 7.36379 6.09884 7.36379 6.364C7.36379 6.62916 7.25847 6.88347 7.071 7.071Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <ul class="dropdown__menu" id="dropdown-menu">
+                    <!-- Рендер списка элементов (main.js) -->
+                  </ul>
                 </div>
-
-                <!-- ЦЕНТР -->
-                <div class="center-block">
-                  <div class="first">
-                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
-                  </div>
-                  <div class="first">
-                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
-                  </div>
-
-                  <div class="first">
-                    <img class="wavy-rings" src="./src/shared/icons/Circle.svg" alt="" />
-                  </div>
-
-                  <div class="center-content">
-                    <h2>ONLINE BANKING</h2>
-                    <div class="dropdown">
-                      <button class="dropdown__bar">
-                        <span>Add a Cryptocurrency</span>
-                        <img src="./src/shared/icons/Arrow3.svg" alt="" />
-                      </button>
-                      <ul class="dropdown__menu">
-                        <li>
-                          <button class="dropdown__btn">
-                            <img class="dropdown__img" src="/1.png" alt="" />
-                            <span>USD Coin</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="dropdown__btn">
-                            <img class="dropdown__img" src="/1.png" alt="" />
-                            <span>Binance Coin</span>
-                          </button>
-                        </li>
-                        <li>
-                          <button class="dropdown__btn">
-                            <img class="dropdown__img" src="/1.png" alt="" />
-                            <span>Tether</span>
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ПРАВАЯ КОЛОНКА -->
-                <div class="crypto-list crypto-list--right">
-                  <!-- <div class="crypto-item" data-symbol="BNBUSDT">
-                    <img src="bnb.svg" class="icon" alt="BNB" />
-                    <span class="name">Binance Coin</span>
-                    <span class="price">$844.91</span>
-                  </div>
-                  <div class="crypto-item" data-symbol="DOGEUSDT">
-                    <img src="doge.svg" class="icon" alt="DOGE" />
-                    <span class="name">Dogecoin</span>
-                    <span class="price">$0.1278</span>
-                  </div> -->
-                </div>
-              </section>
-              <!-- ----------------------------------------------------------------------------- -->
+              </div>
             </div>
-          </div>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <div class="banking__crypto-list crypto-list--right"></div>
+            <svg
+              class="banking__decor decor--right"
+              width="627"
+              height="301"
+              viewBox="0 0 627 301"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.5">
+                <path
+                  class="draw-path"
+                  d="M621 8.50098C620.5 43.001 621 113.501 621 122.001C621 130.09 616.238 135.501 613 139.001C594.5 159.001 556.8 199.801 554 203.001C551.2 206.201 545.5 210.001 539 210.001C470.833 209.668 334.1 209.201 324.5 210.001C314.9 210.801 310.3 218.001 307.5 221.501C290.167 243.168 255.5 285.101 253.5 287.501C251.5 289.901 247 294.501 237 294.501H8"
+                  stroke="white"
+                />
+                <circle cx="6" cy="295" r="5.5" fill="white" stroke="white" />
+                <circle cx="621" cy="6" r="5.5" fill="white" stroke="white" />
+              </g>
+            </svg>
+          </section>
+          <!-- ----------------------------------------------------------------------------- -->
         </div>
       </section>
     </main>
+    <!-- Modal videoplayer------------------------- -->
+    <div class="modal" id="modal-player">
+      <div class="overlay" id="overlay-player">
+        <div class="modal__player">
+          <button
+            aria-label="Close modal window"
+            class="modal__btn-close btn--close"
+            id="player-modal-close"
+          >
+            <svg
+              class="modal__icon"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.25 13.9779L13.9779 1.25"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14.25 13.9779L1.52208 1.25"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="modal__body playvideo-body">
+            <div class="player">
+              <video
+                id="videoElement"
+                class="player__video"
+                src="./src/assets/media/video/HP.mp4"
+              ></video>
+              <button class="player__btn" id="playBtn" aria-label="Play video">
+                <svg
+                  class="play__btn-icon"
+                  width="37"
+                  height="41"
+                  viewBox="0 0 37 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M34.6522 17.8889C36.5845 19.0045 36.5845 21.7937 34.6522 22.9093L4.34783 40.4056C2.41546 41.5212 1.81588e-06 40.1266 1.91342e-06 37.8953L3.44299e-06 2.90288C3.54052e-06 0.671579 2.41546 -0.722987 4.34783 0.392666L34.6522 17.8889Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+
+              <div class="player__controls">
+                <div class="player__controls-btns">
+                  <button class="player__controls-btn" id="playBtn-control" aria-label="Play video">
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M23.6188 11.4658C24.3442 11.8374 24.3442 12.8741 23.6188 13.2458L1.45616 24.6002C0.790728 24.9411 0.0001894 24.4579 0.000189437 23.7102L0.000190555 1.00132C0.000190592 0.253642 0.790729 -0.229596 1.45616 0.11132L23.6188 11.4658Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
+                  <div class="player__controls-right">
+                    <button
+                      class="player__controls-btn"
+                      id="volumeBtn"
+                      aria-label="Change mute video"
+                    >
+                      <svg
+                        width="26"
+                        height="22"
+                        viewBox="0 0 26 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 7.2125V14.7125H5.63462L12.6779 20.9625V0.9625L5.63462 7.2125H0ZM19.0168 10.9625C19.0165 9.91515 18.6867 8.88868 18.0645 7.99868C17.4423 7.10867 16.5525 6.39049 15.4952 5.925V15.9875C17.58 15.075 19.0168 13.175 19.0168 10.9625ZM15.4952 0V2.575C19.5662 3.65 22.5385 7 22.5385 10.9625C22.5385 14.925 19.5662 18.275 15.4952 19.35V21.925C21.1439 20.7875 25.3558 16.3125 25.3558 10.9625C25.3558 5.6125 21.1439 1.1375 15.4952 0Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      class="player__controls-btn"
+                      id="fullScreenBtn"
+                      aria-label="Fullscreen video"
+                    >
+                      <svg
+                        width="20"
+                        height="18"
+                        viewBox="0 0 20 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.81731 11.25H0V17.5H7.04327V15H2.81731V11.25ZM0 6.25H2.81731V2.5H7.04327V0H0V6.25ZM16.9038 15H12.6779V17.5H19.7212V11.25H16.9038V15ZM12.6779 0V2.5H16.9038V6.25H19.7212V0H12.6779Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="player__progress" id="progressContainer">
+                  <div class="player__progress-bar" id="progressBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal learnMore------------------------- -->
+    <div class="modal" id="learnmore-modal">
+      <div class="overlay" id="learnmore-overlay">
+        <div class="modal__learnmore">
+          <button
+            aria-label="close modal window"
+            class="modal__btn-close btn--close"
+            id="learnmore-modal-close"
+          >
+            <svg
+              class="modal__icon"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.25 13.9779L13.9779 1.25"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14.25 13.9779L1.52208 1.25"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="modal__body learnmore-body">
+            <h2 class="model__title">The Digital Bridge Between Reality and Tomorrow</h2>
+            <div class="model__info">
+              <p>
+                When you turn on your smart alarm clock in the morning of 2026, it already knows you
+                slept seventeen minutes less than usual. The algorithm picks a morning playlist
+                based on your heart rate and the current moon phase. Your voice assistant, trained
+                on thousands of previous conversations, doesn't just say “good morning” – it reminds
+                you: “Don't forget to pick up your package from the drone post before 10:30 AM.” You
+                step up to the mirror, and instead of your reflection, you see graphs of your
+                hydration levels, your daily schedule, and a suggestion: “You might want to take
+                extra vitamin D – it's going to be cloudy today.”
+              </p>
+              <p>
+                In the evening, you activate “dark matter” mode at home: the lights dim gradually,
+                following your movement; the Wi-Fi reallocates bandwidth to stream a movie in 32K;
+                and the lounge chair warms up exactly the spot on your back that got tired from
+                sitting. On screen – not just a film: a generative neural network adjusts the
+                subtitles, replaces store signs with brands you recognize, and even redubs the
+                actors if you whisper a request.
+              </p>
+              <p>
+                When you turn on your smart alarm clock in the morning of 2026, it already knows you
+                slept seventeen minutes less than usual. The algorithm picks a morning playlist
+                based on your heart rate and the current moon phase.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

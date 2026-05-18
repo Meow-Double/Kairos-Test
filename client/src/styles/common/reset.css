@@ -8,14 +8,15 @@ ul,
 li {
   list-style: none;
   font-size: inherit;
-  display: inline-block;
 }
 li {
   width: 100%;
+  display: inline-block;
 }
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 img {
   max-width: 100%;
@@ -23,6 +24,7 @@ img {
 
 button {
   font-family: inherit;
+  font-size: inherit;
   background-color: transparent;
   border: 1px solid transparent;
   color: inherit;

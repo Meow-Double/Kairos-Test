@@ -1,0 +1,113 @@
+.modal__player {
+  max-width: calc(1464px + 60px);
+  width: 100%;
+  margin-inline: 60px;
+}
+
+.player {
+  width: 100%;
+  max-height: 814px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+}
+
+.player__video {
+  width: 100%;
+  height: 100%;
+}
+
+.player__btn {
+  width: 124px;
+  height: 124px;
+  border-radius: 200px;
+  border: 2px solid var(--default-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.play__btn-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.player__btn--hidden {
+  display: none;
+}
+
+.player__controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.player__controls-btns {
+  padding: 27px 33px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.player__controls-btn {
+  width: 30px;
+  height: 30px;
+}
+
+/* ------Progress Bar */
+
+.player__progress {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: var(--player-bar-color);
+  cursor: pointer;
+}
+
+.player__progress-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.player__controls-right {
+  display: flex;
+  gap: 16px;
+}
+
+@media screen and (max-width: 700px) {
+  .player__btn {
+    width: 111px;
+    height: 111px;
+  }
+  .play__btn-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .player__btn {
+    width: 48px;
+    height: 48px;
+  }
+  .play__btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

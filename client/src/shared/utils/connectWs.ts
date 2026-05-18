@@ -1,4 +1,3 @@
-// src/services/cryptoWebSocket.ts
 export interface CryptoPrice {
   symbol: string;
   price: number;
@@ -9,7 +8,6 @@ type OnPriceUpdate = (prices: Map<string, CryptoPrice>) => void;
 
 export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
   const symbols = [
-    // Ваши текущие (исправленные)
     'btcusdt', // Bitcoin
     'ethusdt', // Ethereum
     'solusdt', // Solana
@@ -34,22 +32,22 @@ export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
     'injusdt', // Injective
   ];
   const streams = symbols.map((s) => `${s}@ticker`).join('/');
-  const url = `wss://stream.binance.com:9443/stream?streams=${streams}`;
+  const url = `${import.meta.env.VITE_BINANCE_WS}/stream?streams=${streams}`;
 
   let ws: WebSocket | null = null;
   let prices = new Map<string, CryptoPrice>();
-  let reconnectTimeout: NodeJS.Timeout;
+  let reconnectTimeout: ReturnType<typeof setTimeout>;
 
   function connect() {
     ws = new WebSocket(url);
 
-    ws.onopen = () => console.log('[CryptoWS] Connected');
+    ws.onopen = () => console.log('Connected');
 
     ws.onmessage = (event) => {
       try {
         const msg = JSON.parse(event.data);
-        const { stream, data } = msg;
-        const symbol = data.s; // BTCUSDT\
+        const { data } = msg;
+        const symbol = data.s;
 
         const price = parseFloat(data.c);
         const change24h = parseFloat(data.P);
@@ -57,24 +55,23 @@ export function connectCryptoWebSocket(onUpdate: OnPriceUpdate) {
         prices.set(symbol, { symbol, price, change24h });
         onUpdate(new Map(prices));
       } catch (err) {
-        console.warn('[CryptoWS] Parse error:', err);
+        console.warn('Parse error:', err);
       }
     };
 
     ws.onclose = () => {
-      console.warn('[CryptoWS] Disconnected. Reconnecting in 3s...');
+      ws.onopen = () => console.log('Disconnected');
       reconnectTimeout = setTimeout(connect, 3000);
     };
 
     ws.onerror = (err) => {
-      console.error('[CryptoWS] Error:', err);
+      console.error('Error:', err);
       ws?.close();
     };
   }
 
   connect();
 
-  // Возвращаем функцию для корректного отключения
   return () => {
     clearTimeout(reconnectTimeout);
     ws?.close();

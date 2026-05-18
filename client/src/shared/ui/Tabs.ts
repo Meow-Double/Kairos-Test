@@ -1,27 +1,32 @@
-export interface TabItem {
-  id: string;
-  content: HTMLElement | string;
-}
-
 interface CreateTabsProps {
-  tabs: TabItem[];
-  activeTabId: string;
+  defaultTabId: string;
 }
 
 export const createTabs = (props: CreateTabsProps) => {
-  const { activeTabId, tabs } = props;
+  const { defaultTabId } = props;
 
-  let currentTab = props.tabs.find((tab) => tab.id === activeTabId) || tabs[0];
+  const tabs = document.querySelectorAll('.header-tab');
+  let currentTub = defaultTabId ?? '';
 
-  const setActiveTab = (tabId: string) => {
-    const nextTab = props.tabs.find((tab) => tab.id === tabId);
-    if (nextTab) {
-      currentTab = nextTab;
-    }
+  const render = () => {
+    tabs.forEach((tab) => {
+      const currentTabId = tab.getAttribute('data-tab-content');
+
+      if (currentTabId === currentTub) {
+        tab.classList.add('header-tab--active');
+      } else {
+        tab.classList?.remove('header-tab--active');
+      }
+    });
   };
 
+  const setActiveTab = (tabId: string) => {
+    currentTub = tabId;
+    render();
+  };
+
+  render();
   return {
-    getActive: () => currentTab,
     setActive: setActiveTab,
   };
 };

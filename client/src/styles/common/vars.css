@@ -1,0 +1,15 @@
+:root {
+  --background-color: #031c39;
+
+  --default-inverse-color: #000;
+
+  --primary-color: #27005b;
+  --default-color: #ffffff;
+  --secondary-color: #bdab6e;
+
+  --player-bar-color: #d9d9d9;
+
+  --overlay-color-4: rgba(0, 0, 0, 0.4);
+
+  --overlay-inverse-color-4: rgba(255, 255, 255, 0.4);
+}

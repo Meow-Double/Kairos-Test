@@ -33,34 +33,33 @@
 .btn--secondary {
   background: var(--secondary-color);
   color: var(--default-color);
+  border: 1px solid transparent;
+}
+
+.btn--secondary:hover {
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .btn--secondary-outline {
   border: 1px solid var(--secondary-color);
   color: var(--secondary-color);
 }
-/* .btn--secondary {
-  background: #6c757d;
-  color: white;
-}
-.btn--secondary:hover:not(:disabled) {
-  background: #545b62;
+
+.btn--secondary-outline:hover {
+  background-color: var(--secondary-color);
+  color: var(--default-color);
 }
 
-.btn--google {
-  background: white;
-  color: #333;
-  border: 1px solid #dadce0;
-}
-.btn--google:hover:not(:disabled) {
-  background: #f8f9fa;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+.btn--close {
+  width: 46px;
+  height: 46px;
+  border-radius: 200px;
+  background-color: var(--primary-color);
+  color: var(--default-color);
 
-.btn--danger {
-  background: #dc3545;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.btn--danger:hover:not(:disabled) {
-  background: #c82333;
-} */

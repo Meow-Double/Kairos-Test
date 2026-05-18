@@ -1,0 +1,14 @@
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* Стартовая позиция: чуть левее */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.crypto-item--animate {
+  animation: slideInLeft 0.15s ease-in forwards;
+}

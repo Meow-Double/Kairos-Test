@@ -1,0 +1,254 @@
+.banking__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banking__title {
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+/* -------------------- */
+
+.banking__dashboard {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'a b c';
+
+  align-items: center;
+
+  color: var(--default-color);
+  margin-bottom: 200px;
+}
+
+.crypto-list--left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 60px;
+  grid-area: a;
+}
+
+.crypto-list--right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 60px;
+  grid-area: c;
+}
+
+/* Стиль карточки монеты */
+.crypto-item--left {
+  display: grid;
+  grid-template-columns: auto auto 24px;
+  grid-template-areas: 'item-left item-center item-right';
+  align-items: center;
+  gap: 30px;
+}
+
+.crypto-item--right {
+  display: grid;
+  grid-template-columns: auto auto 24px;
+  grid-template-areas: 'item-right item-center item-left';
+  align-items: center;
+  gap: 30px;
+}
+
+.price {
+  font-size: 18px;
+  color: var(--default-color);
+  grid-area: item-left;
+}
+.name {
+  font-size: 18px;
+  color: var(--default-color);
+  grid-area: item-center;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  grid-area: item-right;
+}
+
+.banking__center-block {
+  position: relative;
+  width: 764px;
+  height: 764px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: b;
+}
+
+.banking__circle-icon {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.banking__center-block > :nth-child(2) {
+  width: 672px;
+  height: 672px;
+  animation-direction: reverse;
+}
+.banking__center-block > :nth-child(3) {
+  width: 594px;
+  height: 594px;
+}
+
+.banking__circle-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.banking__center-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.banking__center-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.banking__circle-decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: circle-move 10s linear infinite;
+}
+
+/*---------decore--------*/
+.banking__decor {
+  position: absolute;
+}
+
+.decor--right {
+  bottom: 0;
+  right: 0;
+}
+
+.decor--left {
+  top: 0;
+  left: 0;
+}
+
+@keyframes circle-move {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .banking__center-block {
+    width: 600px;
+    height: 600px;
+    margin-inline: auto;
+  }
+  .banking__center-block > :nth-child(2) {
+    width: 500px;
+    height: 500px;
+    animation-direction: reverse;
+  }
+  .banking__center-block > :nth-child(3) {
+    width: 400px;
+    height: 400px;
+  }
+
+  .banking__dashboard {
+    margin-top: 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'b b'
+      'a c';
+    gap: 20px;
+
+    align-items: flex-start;
+  }
+
+  .crypto-item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .decor--left {
+    top: -60px;
+  }
+  .decor--right {
+    bottom: -160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banking__center-block {
+    width: 400px;
+    height: 400px;
+    margin-inline: auto;
+  }
+  .banking__center-block > :nth-child(2) {
+    width: 300px;
+    height: 300px;
+    animation-direction: reverse;
+  }
+  .banking__center-block > :nth-child(3) {
+    width: 200px;
+    height: 200px;
+  }
+
+  .crypto-item--left {
+    margin-right: auto;
+    grid-template-areas: 'item-right item-center item-left';
+  }
+
+  .crypto-list {
+    align-items: start;
+    gap: 30px;
+  }
+
+  .crypto-item {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .banking__dashboard {
+    margin-top: 120px;
+  }
+  .crypto-item {
+    gap: 10px;
+    grid-template-areas:
+      'item-right item-center'
+      'item-righ item-left';
+  }
+
+  .banking__circle-decor {
+    display: none;
+  }
+
+  .banking__center-block {
+    height: max-content;
+    align-items: flex-end;
+    position: static;
+
+    margin-bottom: 10px;
+  }
+
+  .decor--left {
+    top: -60px;
+    left: -20%;
+  }
+}

@@ -1,11 +1,10 @@
-export const cryptocurrencies = [
+export const cryptoCurrencies = [
   {
     id: 'bitcoin',
     name: 'Bitcoin',
     symbol: 'BTC',
     sign: '₿',
     image: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
-    color: '#F7931A',
   },
   {
     id: 'ethereum',
@@ -13,7 +12,6 @@ export const cryptocurrencies = [
     symbol: 'ETH',
     sign: 'Ξ',
     image: 'https://cryptologos.cc/logos/ethereum-eth-logo.png',
-    color: '#627EEA',
   },
   {
     id: 'solana',
@@ -21,7 +19,6 @@ export const cryptocurrencies = [
     symbol: 'SOL',
     sign: '◎',
     image: 'https://cryptologos.cc/logos/solana-sol-logo.png',
-    color: '#00FFA3',
   },
   {
     id: 'xrp',
@@ -29,15 +26,13 @@ export const cryptocurrencies = [
     symbol: 'XRP',
     sign: '✕',
     image: 'https://cryptologos.cc/logos/xrp-xrp-logo.png',
-    color: '#23292F',
   },
   {
-    id: 'usd-coin',
-    name: 'USD Coin',
-    symbol: 'USDC',
-    sign: '$',
-    image: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png',
-    color: '#2775CA',
+    id: 'cardano',
+    name: 'Cardano',
+    symbol: 'ADA',
+    sign: '₳',
+    image: 'https://cryptologos.cc/logos/cardano-ada-logo.png',
   },
   {
     id: 'binance-coin',
@@ -45,15 +40,6 @@ export const cryptocurrencies = [
     symbol: 'BNB',
     sign: 'B',
     image: 'https://cryptologos.cc/logos/bnb-bnb-logo.png',
-    color: '#F3BA2F',
-  },
-  {
-    id: 'midnight',
-    name: 'Midnight',
-    symbol: 'MID',
-    sign: '◉',
-    image: 'https://cryptologos.cc/logos/midnight-mid-logo.png',
-    color: '#6B4EE6',
   },
   {
     id: 'dogecoin',
@@ -61,7 +47,6 @@ export const cryptocurrencies = [
     symbol: 'DOGE',
     sign: 'Ð',
     image: 'https://cryptologos.cc/logos/dogecoin-doge-logo.png',
-    color: '#C2A633',
   },
   {
     id: 'sui',
@@ -69,22 +54,12 @@ export const cryptocurrencies = [
     symbol: 'SUI',
     sign: 'S',
     image: 'https://cryptologos.cc/logos/sui-sui-logo.png',
-    color: '#4DA2FF',
   },
   {
-    id: 'tether',
-    name: 'Tether',
-    symbol: 'USDT',
-    sign: '₮',
-    image: 'https://cryptologos.cc/logos/tether-usdt-logo.png',
-    color: '#26A17B',
-  },
-  {
-    id: 'tether',
-    name: 'Tether',
-    symbol: 'USDT',
-    sign: '₮',
-    image: 'https://cryptologos.cc/logos/tether-usdt-logo.png',
-    color: '#26A17B',
+    id: 'polkadot',
+    name: 'Polkadot',
+    symbol: 'DOT',
+    sign: '●',
+    image: 'https://cryptologos.cc/logos/polkadot-new-dot-logo.png',
   },
 ];

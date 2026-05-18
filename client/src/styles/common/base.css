@@ -1,0 +1,15 @@
+body {
+  color: var(--default-color);
+  overflow-x: hidden;
+  font-family: BrunoAce_font, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: calc(1760px + 120px);
+  width: 100%;
+  padding-inline: 60px;
+  margin-inline: auto;
+  height: 100%;
+}

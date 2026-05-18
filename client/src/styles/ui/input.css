@@ -5,7 +5,7 @@
   width: 346px;
   height: 42px;
 
-  background: #ffffff;
-  border: 1px solid #27005b;
+  background: var(--default-color);
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
 }
