@@ -1,6 +1,6 @@
 # 📄 Kairos Test Project — Документация
 
-Демо: 🔗 https://kairos-test-client-tk2y.vercel.app/
+Демо: 🔗 https://kairos-test-omega.vercel.app/
 
 &nbsp;
 
